@@ -1,0 +1,313 @@
+/* ---------------------- IMPORT --------------------- */
+/* --------------------------------------------------- */
+@import url();
+@import url();
+@import url();
+/* -----------------CONFIG COULEURS PAGE-------------- */
+/* --------------------------------------------------- */
+:root {
+    --ecriture: #fff;
+    --background: #111;
+}
+
+/* ------------- MISE EN PAGE DU GENERAL ------------- */
+/* --------------------------------------------------- */
+
+
+
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+
+
+/* -------------- CONFIGURATION DU MENU -------------- */
+/* --------------------------------------------------- */
+
+  /* MISE EN PAGE DE MON MENU */
+  nav {
+      background: var(--background);
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+  }
+  nav:after {
+      content: '';
+      clear: both;
+      margin: auto;
+  }
+  /* Différentes caractéristiques du Titre de mon menu */
+ 
+  nav .logo img {
+    width: 200px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 1vw;
+  }
+
+ 
+  nav .logo a, nav .logo {
+    float: left;
+    color: #fff;
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 70px;
+    padding-left: 15px;
+    text-decoration: none;
+    
+  }
+
+  /* Ajout de couleur sur une partie de mon Titre */
+  nav strong {
+      color: #98FB98;
+  }
+  nav ul {
+      float: right;
+      margin-right: 40px;
+      list-style: none;
+      position: relative;
+  }
+  nav ul li {
+     display: inline-block;
+     background: var(--background);
+     margin: 0 5px;
+  }
+  nav ul li a {
+      color: var(--ecriture);
+      line-height: 70px;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 8px 15px;
+  }
+  /* Mise en page du menu active et du menu au contact de la souris */
+  nav ul li a:hover,
+  nav ul li a.active,
+  nav ul li label.active,
+  label .active {
+      border-radius: 5px;
+      background: green;
+      color: #fff;
+      width: 32%;
+  }
+  /* Mise en page du sous-menu actif */
+  nav ul li ul li a.active {
+      background: none;
+      color: green;
+      font-weight: bold;
+  }
+  nav ul ul li a:hover {
+      background: none;
+      color: green;
+  }
+  nav ul ul {
+      position: absolute;
+      top: 90px;
+      border-top: 3px solid green;
+      opacity: 0;
+      visibility: hidden;
+      transition: top .3s;
+  }
+  nav ul ul ul {
+      border-top: none;
+  }
+  nav ul li:hover > ul {
+      top: 70px;
+      opacity: 1;
+      visibility: visible;
+  }
+  nav ul ul li {
+      position: relative;
+      margin: 0px;
+      width: 100%;
+      float: none;
+      display: list-item;
+      border-bottom: 1px solid var(--ecriture);
+  }
+  nav ul ul li a {
+      line-height: 50px;
+  }
+  nav ul ul ul li {
+      position:relative;
+      top: -60px;
+      left: 150px;
+  }
+  .show,.icon,input {
+      display: none;
+  }
+  .fa-plus {
+      font-size: 15px;
+      margin-left: 40px;
+  }
+  
+  /* CREATION DU DARK MODE */
+  nav .theme .changeTheme {
+      cursor: pointer;
+      position: fixed;
+      color: var(--ecriture);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 20px;
+      margin-top: 25px;
+      margin-left: 10px;
+  }
+  nav .theme #changeTheme {
+      background: linear-gradient(#ffffff00, #ffffff00), url(../img/icon-light-mode.webp) no-repeat;
+      background-size: cover;
+      background-position: center;
+      width: 20px;
+      height: 20px;
+  }
+  
+  /* RESPONSIVE */
+  /* Mise en page du bouton pour le format Smartphone */
+  @media all and (max-width:450px) {
+      nav .logo a {
+          font-size: 24px;
+      }
+  }
+  /* Mise en page pour tablette */
+  @media screen and (min-width:950px) and (max-width:1056px) {
+      nav .logo a {
+          padding-left: 40px;
+          width: 40%;
+      }
+      nav ul {
+          margin-right: 10px;
+      }
+      nav lu li a {
+          line-height: 70px;
+          padding: 7px 11px;
+      }
+  }
+  /* Mise en page pour le bouton du Menu */
+  @media all and (max-width:980px) {
+      nav ul {
+          margin-right: 0px;
+          width: 100%;
+      }
+      nav .logo a {
+          padding-left: 40px;
+          width: 100%;
+      }
+      .show + a, ul {
+          display: none;
+      }
+      nav ul li,nav ul ul li {
+          display: block;
+          width: 100%;
+      }
+      .show {
+          display: block;
+          color: var(--ecriture);
+          font-size: 18px;
+          padding: 0 15px;
+          line-height: 70px;
+          cursor: pointer;
+      }
+      .show-active {
+          color: green;
+          font-weight: bold;
+      }
+      label .active {
+          color: green;
+      }
+      .icon {
+          display: block;
+          color: green;
+          position: absolute;
+          top: 0;
+          right: 25px;
+          line-height: 70px;
+          cursor: pointer;
+          font-size: 25px;
+      }
+      nav ul ul {
+          top: 70px;
+          border-top: 0px;
+          float: none;
+          position: static;
+          display: none;
+          opacity: 1;
+          visibility: visible;
+      }
+      nav ul ul a {
+          padding-left: 40px;
+      }
+      nav ul ul ul a {
+          padding-left: 80px;
+      }
+      nav ul ul ul li {
+          position: static;
+      }
+      [id^=btn]:checked + ul {
+          display: block;
+      }
+      nav ul ul li {
+          border-bottom: 0px;
+      }
+      span.cancel:before {
+          content: '\f00d';
+      }
+  }
+  
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+
+
+/* --------------- TITRE DE LA PARTIE ---------------- */
+/* --------------------------------------------------- */
+
+
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+
+
+/* --------------- TITRE DE LA PARTIE ---------------- */
+/* --------------------------------------------------- */
+
+
+
+
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+
+
+/* --------------- TITRE DE LA PARTIE ---------------- */
+/* --------------------------------------------------- */
+
+
+
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+
+
+/* --------------- TITRE DE LA PARTIE ---------------- */
+/* --------------------------------------------------- */
+
+
+
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+
+
+/* -------------- PIED DE PAGE : FOOTER -------------- */
+/* --------------------------------------------------- */
+
+
+
+/* --------------------------------------------------- */
+/* --------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
